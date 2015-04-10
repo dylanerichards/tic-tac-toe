@@ -31,7 +31,12 @@ class Board
   def winner?
     winner = false
     WINNING_COMBINATIONS.each do |combination|
-      if board[combination[0]].value == board[combination[1]].value && board[combination[1]].value == board[combination[2]].value && board[combination[0]].value.is_a?(String)
+      first_cell = board[combination[0]].value
+      second_cell = board[combination[1]].value
+      third_cell = board[combination[2]].value
+      consideration = [first_cell, second_cell, third_cell]
+
+      if consideration.uniq.length == 1 && first_cell.is_a?(String)
         winner = true
       end
     end
