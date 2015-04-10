@@ -41,4 +41,12 @@ class Board
   def available_cells
     board.select { |cell| cell.value == :blank }
   end
+
+  def to_s
+    rows = board.each_slice(3).to_a
+
+    rows.each do |row|
+      p row.map(&:value)
+    end
+  end
 end

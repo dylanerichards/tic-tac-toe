@@ -2,7 +2,6 @@ require_relative "board"
 require_relative "cell"
 require "pry"
 
-
 def initialize_board
   @board = Board.new
 end
@@ -41,6 +40,7 @@ def play
         play
       end
     else
+      @board.to_s
       play
     end
 
