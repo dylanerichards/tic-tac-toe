@@ -20,7 +20,7 @@ From here, you will be prompted to make a move. Here are your options:
 - `bottom middle`
 - `bottom right`
 
-After you make a move, the computer will respond with one of its own, and the process repeats until there is a winner.
+After you make a move, the computer will respond with one of its own, a visual representation of the board will be displayed, and the process repeats until there is a winner.
 
 When asked for another game, reply `Yes` to do so. Typing anything else will exit the game.
 
