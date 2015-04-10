@@ -12,6 +12,18 @@ class Board
     [2, 4, 6]
   ]
 
+  POSITIONS = {
+    "top left" => 0,
+    "top middle" => 1,
+    "top right" => 2,
+    "middle left" => 3,
+    "center" => 4,
+    "middle right" => 5,
+    "bottom left" => 6,
+    "bottom middle" => 7,
+    "bottom right" => 8
+  }
+
   def initialize
     @board = Array.new(9) { Cell.new }
   end
@@ -24,5 +36,9 @@ class Board
       end
     end
     winner
+  end
+
+  def available_cells
+    board.select { |cell| cell.value == :blank }
   end
 end
