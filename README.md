@@ -30,7 +30,7 @@ When asked for another game, reply `Yes` to do so. Typing anything else will exi
 
 The `Board` is represented as an `Array` with 9 openings (8 indexes). Each of these openings contains a `Cell`. There is an attribute on `Cell` instances called `value` that stores either an X or an O.
 
-The board, with its `WINNING_COMBINATIONS` constant is also aware of which indexes need to be filled in order for there to be a potential winner.
+The board, with its `WINNING_COMBINATIONS` constant, is also aware of which indexes need to be filled in order for there to be a potential winner.
 
 The sauce is in `#winner?`, where we iterate over each combination in `WINNING_COMBINATIONS`, and check to see if each of those indexes contain the same value.
 
