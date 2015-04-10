@@ -32,15 +32,13 @@ def play
 
     if @board.winner?
       p "#{winner.upcase} WINS!!!"
-
       puts "Do you want to play again?"
       answer = gets.chomp
+
       if answer == "Yes"
         initialize_board
         choose_characters
         play
-      else
-        nil
       end
     else
       play
