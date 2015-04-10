@@ -31,7 +31,7 @@ def play
 
     if @board.winner?
       p "#{winner.upcase} WINS!!!"
-      @board.to_representation
+      @board.display
       puts "Do you want to play again?"
       answer = gets.chomp
 
@@ -41,7 +41,7 @@ def play
         play
       end
     else
-      @board.to_representation
+      @board.display
       play
     end
 

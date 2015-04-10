@@ -42,7 +42,7 @@ class Board
     board.select { |cell| cell.value == :blank }
   end
 
-  def to_representation
+  def display
     rows = board.each_slice(3).to_a
 
     rows.each do |row|
