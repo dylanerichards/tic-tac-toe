@@ -32,9 +32,17 @@ def play
 
     if @board.winner?
       p "#{winner.upcase} WINS!!!"
-      p @board.board.map(&:value)
+
+      puts "Do you want to play again?"
+      answer = gets.chomp
+      if answer == "Yes"
+        initialize_board
+        choose_characters
+        play
+      else
+        nil
+      end
     else
-      p @board.board.map(&:value)
       play
     end
 
