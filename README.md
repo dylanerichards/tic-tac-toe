@@ -4,8 +4,6 @@
 
 Clone the repository and change into the project's directory.
 
-Here's a video of me running through the usage process:
-
 [Video of me running through the usage process](https://www.dropbox.com/s/dmhcto0vx6eihkm/tic-tac-toe-walkthrough.mp4?dl=0)
 
 Run `ruby tic_tac_toe.rb`.
