@@ -17,10 +17,12 @@ class Board
   end
 
   def winner?
+    winner = false
     WINNING_COMBINATIONS.each do |combination|
       if board[combination[0]].value == board[combination[1]].value && board[combination[1]].value == board[combination[2]].value && board[combination[0]].value.is_a?(String)
-        p "OMG"
+        winner = true
       end
     end
+    winner
   end
 end

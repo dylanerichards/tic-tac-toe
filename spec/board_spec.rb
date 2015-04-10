@@ -34,7 +34,6 @@ describe Board do
     board.board[4] = cell2
     board.board[6] = cell3
 
-    p board.winner?
-    # expect(board.winner?).to eq true
+    expect(board.winner?).to eq true
   end
 end
