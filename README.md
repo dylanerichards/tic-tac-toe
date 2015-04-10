@@ -32,8 +32,7 @@ The board, with its `WINNING_COMBINATIONS` constant is also aware of which index
 
 The sauce is in `#winner?`, where we iterate over each combination in `WINNING_COMBINATIONS`, and check to see if each of those indexes contain the same value.
 
-There is also a check to see if one of those indexes is a `String`, so that when the board doesn't interpret three consecutive `:blank` cells as there being a winner.
-
+There is also a check to see if one of those indexes is a `String` so that the board doesn't interpret three consecutive `:blank` cells as there being a winner.
 
 
 
