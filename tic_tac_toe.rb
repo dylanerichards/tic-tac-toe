@@ -15,6 +15,12 @@ def choose_characters
                         end
 end
 
+def start_game
+  initialize_board
+  choose_characters
+  play
+end
+
 def play
   loop do
     puts "Make a move: "
@@ -36,9 +42,7 @@ def play
       answer = gets.chomp
 
       if answer == "Yes"
-        initialize_board
-        choose_characters
-        play
+        start_game
       end
     else
       @board.display
@@ -49,6 +53,4 @@ def play
   end
 end
 
-initialize_board
-choose_characters
-play
+start_game
