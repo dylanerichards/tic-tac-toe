@@ -15,4 +15,12 @@ class Board
   def initialize
     @board = Array.new(9) { Cell.new }
   end
+
+  def winner?
+    WINNING_COMBINATIONS.each do |combination|
+      if board[combination[0]].value == board[combination[1]].value && board[combination[1]].value == board[combination[2]].value && board[combination[0]].value == "X"
+        p "OMG"
+      end
+    end
+  end
 end

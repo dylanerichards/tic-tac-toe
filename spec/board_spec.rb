@@ -24,4 +24,17 @@ describe Board do
       expect(Board::WINNING_COMBINATIONS.include?(combination)).to eq true
     end
   end
+
+  it "knows when there is a winner" do
+    cell1 = Cell.new(value: "X")
+    cell2 = Cell.new(value: "X")
+    cell3 = Cell.new(value: "X")
+
+    board.board[2] = cell1
+    board.board[4] = cell2
+    board.board[6] = cell3
+
+    p board.winner?
+    # expect(board.winner?).to eq true
+  end
 end
