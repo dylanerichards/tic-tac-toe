@@ -25,15 +25,30 @@ describe Board do
     end
   end
 
-  it "knows when there is a winner" do
-    cell1 = Cell.new(value: "X")
-    cell2 = Cell.new(value: "X")
-    cell3 = Cell.new(value: "X")
 
-    board.board[2] = cell1
-    board.board[4] = cell2
-    board.board[6] = cell3
+  describe "#winner?" do
+    it "knows when there is a winner" do
+      cell1 = Cell.new(value: "X")
+      cell2 = Cell.new(value: "X")
+      cell3 = Cell.new(value: "X")
 
-    expect(board.winner?).to eq true
+      board.board[2] = cell1
+      board.board[4] = cell2
+      board.board[6] = cell3
+
+      expect(board.winner?).to eq true
+    end
+
+    it "returns false when there is no winner" do
+      cell1 = Cell.new(value: "X")
+      cell2 = Cell.new(value: "X")
+      cell3 = Cell.new(value: "X")
+
+      board.board[2] = cell1
+      board.board[4] = cell2
+      board.board[3] = cell3
+
+      expect(board.winner?).to eq false
+    end
   end
 end
