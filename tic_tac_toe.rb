@@ -39,11 +39,8 @@ def play
       p "#{winner.upcase} WINS!!!"
       @board.display
       puts "Do you want to play again?"
-      answer = gets.chomp
 
-      if answer == "Yes"
-        start_game
-      end
+      start_game if gets.chomp == "Yes"
     else
       @board.display
       play
