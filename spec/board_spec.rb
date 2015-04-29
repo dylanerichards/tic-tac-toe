@@ -53,6 +53,13 @@ describe Board do
     end
 
     describe "#available_cells" do
+      it "returns an array whose size is equal to 9 - the amount of occupied cells" do
+        cell = Cell.new(value: "X")
+        board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
+
+        expect(board.available_cells.size).to eq 6
+      end
+
       it "returns all blank cells on the board" do
         cell = Cell.new(value: "X")
         board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
