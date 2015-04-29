@@ -36,20 +36,13 @@ describe Board do
     end
 
     it "returns false when there is no winner" do
-      cell1 = Cell.new(value: "X")
-      cell2 = Cell.new(value: "X")
-      cell3 = Cell.new(value: "X")
-
-      board.board[2] = cell1
-      board.board[4] = cell2
-      board.board[3] = cell3
+      board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
 
       expect(board.winner?).to eq false
     end
 
     describe "#available_cells" do
       it "returns an array whose size is equal to 9 - the amount of occupied cells" do
-        cell = Cell.new(value: "X")
         board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
 
         expect(board.available_cells.size).to eq 6
