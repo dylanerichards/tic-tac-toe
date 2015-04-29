@@ -5,6 +5,7 @@ require_relative "../cell.rb"
 
 describe Board do
   let(:board) { Board.new }
+  let(:cell) { Cell.new(value: "X") }
 
   it "is represesented as an 8-index array" do
     expect(board.board.size).to eq 9
@@ -29,13 +30,7 @@ describe Board do
 
   describe "#winner?" do
     it "knows when there is a winner" do
-      cell1 = Cell.new(value: "X")
-      cell2 = Cell.new(value: "X")
-      cell3 = Cell.new(value: "X")
-
-      board.board[2] = cell1
-      board.board[4] = cell2
-      board.board[6] = cell3
+      board.board[2], board.board[4], board.board[6] = Array.new(3, cell)
 
       expect(board.winner?).to eq true
     end
