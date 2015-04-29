@@ -42,16 +42,15 @@ describe Board do
     end
 
     describe "#available_cells" do
-      it "returns an array whose size is equal to 9 - the amount of occupied cells" do
+      before(:each) do
         board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
+      end
 
+      it "returns an array whose size is equal to 9 - the amount of occupied cells" do
         expect(board.available_cells.size).to eq 6
       end
 
       it "returns all blank cells on the board" do
-        cell = Cell.new(value: "X")
-        board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
-
         unblank_cells = board.board.reject { |cell| cell.value == :blank }
         blank_cells = board.board - unblank_cells
 
