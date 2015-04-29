@@ -1,4 +1,5 @@
 require "spec_helper"
+require "pry"
 require_relative "../board.rb"
 require_relative "../cell.rb"
 
@@ -49,6 +50,18 @@ describe Board do
       board.board[3] = cell3
 
       expect(board.winner?).to eq false
+    end
+
+    describe "#available_cells" do
+      it "returns all blank cells on the board" do
+        cell = Cell.new(value: "X")
+        board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
+
+        unblank_cells = board.board.reject { |cell| cell.value == :blank }
+        blank_cells = board.board - unblank_cells
+
+        expect(board.available_cells).to eq blank_cells
+      end
     end
   end
 end
