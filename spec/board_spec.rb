@@ -27,6 +27,10 @@ describe Board do
     end
   end
 
+  def fill_board
+    board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
+  end
+
 
   describe "#winner?" do
     it "knows when there is a winner" do
@@ -36,14 +40,14 @@ describe Board do
     end
 
     it "returns false when there is no winner" do
-      board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
+      fill_board
 
       expect(board.winner?).to eq false
     end
 
     describe "#available_cells" do
       before(:each) do
-        board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
+        fill_board
       end
 
       it "returns an array whose size is equal to 9 - the amount of occupied cells" do
