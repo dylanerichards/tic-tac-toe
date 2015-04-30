@@ -12,9 +12,7 @@ describe Board do
   end
 
   it "is filled with cells" do
-    board.board.each do |cell|
-      expect(cell).to be_a Cell
-    end
+    board.board.each { |cell| expect(cell).to be_a Cell }
   end
 
   it "contains the winning combinations" do
