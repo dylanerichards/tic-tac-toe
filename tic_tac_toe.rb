@@ -8,8 +8,8 @@ end
 
 def choose_characters
   puts "X or O?"
-  @player_character = gets.chomp
-  @computer_character = case @player_character
+  @player = gets.chomp
+  @computer = case @player
                         when "X" then "O"
                         when "O" then "X"
                         end
@@ -26,13 +26,13 @@ def play
     puts "Make a move: "
     move = gets.chomp
     board_index = Board::POSITIONS[move]
-    winner = @player_character
+    winner = @player
 
-    @board.board[board_index].value = @player_character
+    @board.board[board_index].value = @player
 
     if !@board.winner?
-      @board.available_cells.sample.value = @computer_character
-      winner = @computer_character if @board.winner?
+      @board.available_cells.sample.value = @computer
+      winner = @computer if @board.winner?
     end
 
     if @board.winner?
