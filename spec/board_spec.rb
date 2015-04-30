@@ -23,7 +23,7 @@ describe Board do
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
       [0, 4, 8], [2, 4, 6]
     ].each do |combination|
-      expect(Board::WINNING_COMBINATIONS.include?(combination)).to eq true
+      expect(Board::WINNING_COMBINATIONS).to include combination
     end
   end
 
