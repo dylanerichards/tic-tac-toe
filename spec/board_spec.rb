@@ -31,7 +31,6 @@ describe Board do
     board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
   end
 
-
   describe "#winner?" do
     it "knows when there is a winner" do
       board.board[2], board.board[4], board.board[6] = Array.new(3, cell)
