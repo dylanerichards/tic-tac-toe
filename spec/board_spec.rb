@@ -43,7 +43,7 @@ describe Board do
         fill_board
       end
 
-      it "returns an array whose size is equal to 9 - the amount of occupied cells" do
+      it "returns an array whose size is equal to 9 minus the amount of occupied cells" do
         expect(board.available_cells.size).to eq 6
       end
 
