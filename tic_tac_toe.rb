@@ -1,6 +1,5 @@
 require_relative "board"
 require_relative "cell"
-require "pry"
 
 def initialize_board
   @board = Board.new
@@ -10,9 +9,9 @@ def choose_characters
   puts "X or O?"
   @player = gets.chomp
   @computer = case @player
-                        when "X" then "O"
-                        when "O" then "X"
-                        end
+              when "X" then "O"
+              when "O" then "X"
+              end
 end
 
 def start_game
