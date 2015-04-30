@@ -22,7 +22,7 @@ def start_game
 end
 
 def play
-  loop do
+  until @board.winner?
     puts "Make a move: "
     move = gets.chomp
     board_index = Board::POSITIONS[move]
@@ -45,8 +45,6 @@ def play
       @board.display
       play
     end
-
-    break if @board.winner?
   end
 end
 
