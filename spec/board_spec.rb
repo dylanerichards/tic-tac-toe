@@ -27,10 +27,6 @@ describe Board do
     end
   end
 
-  def fill_board
-    board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
-  end
-
   describe "#winner?" do
     it "knows when there is a winner" do
       board.board[2], board.board[4], board.board[6] = Array.new(3, cell)
@@ -60,5 +56,11 @@ describe Board do
         expect(board.available_cells).to eq blank_cells
       end
     end
+  end
+
+  private
+
+  def fill_board
+    board.board[2], board.board[4], board.board[3] = Array.new(3, cell)
   end
 end
