@@ -38,7 +38,7 @@ def play
     @board.display
 
     if @board.winner?
-      p "#{winner.upcase} WINS!!!"
+      puts "#{winner.upcase} WINS!!!"
       puts "Do you want to play again?"
 
       start_game if gets.chomp == "Yes"
