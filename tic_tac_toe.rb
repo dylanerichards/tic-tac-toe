@@ -35,14 +35,14 @@ def play
       winner = @computer if @board.winner?
     end
 
+    @board.display
+
     if @board.winner?
       p "#{winner.upcase} WINS!!!"
-      @board.display
       puts "Do you want to play again?"
 
       start_game if gets.chomp == "Yes"
     else
-      @board.display
       play
     end
   end
