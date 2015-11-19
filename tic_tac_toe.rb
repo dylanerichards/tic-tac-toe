@@ -11,6 +11,8 @@ def choose_characters
   @computer = case @player
               when "X" then "O"
               when "O" then "X"
+              else
+                "C"
               end
 end
 
