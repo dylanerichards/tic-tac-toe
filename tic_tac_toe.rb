@@ -16,12 +16,6 @@ def choose_characters
               end
 end
 
-def start_game
-  initialize_board
-  choose_characters
-  play
-end
-
 def play
   until @board.winner?
     puts "Make a move: "
@@ -46,6 +40,12 @@ def play
       play
     end
   end
+end
+
+def start_game
+  initialize_board
+  choose_characters
+  play
 end
 
 start_game
