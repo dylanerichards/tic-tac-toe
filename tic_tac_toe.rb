@@ -30,7 +30,7 @@ def play
 
     @board.board[board_index].value = @player
 
-    if !@board.winner?
+    unless @board.winner?
       @board.available_cells.sample.value = @computer
       winner = @computer if @board.winner?
     end
