@@ -23,8 +23,7 @@ end
 def play
   until @board.winner?
     puts "Make a move: "
-    move = gets.chomp
-    board_index = Board::POSITIONS[move]
+    board_index = Board::POSITIONS[gets.chomp]
     winner = @player
 
     @board.board[board_index].value = @player
