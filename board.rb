@@ -39,18 +39,15 @@ class Board
 
       winner = true if consideration.uniq.length == 1 && first_cell.is_a?(String)
     end
+
     winner
   end
 
   def available_cells
-    board.select { |cell| cell.value == :blank }
+    board.select(&:blank)
   end
 
   def display
-    rows = board.each_slice(3).to_a
-
-    rows.each do |row|
-      p row.map(&:value)
-    end
+    board.each_slice(3).to_a.each { |row| p row.map(&:value) }
   end
 end

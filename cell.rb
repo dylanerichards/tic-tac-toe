@@ -4,4 +4,8 @@ class Cell
   def initialize(value: :blank)
     @value = value
   end
+
+  def blank
+    value == :blank
+  end
 end
