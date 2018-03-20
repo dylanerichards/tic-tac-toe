@@ -1,51 +1,73 @@
 require_relative "board"
 require_relative "cell"
 
-def initialize_board
-  @board = Board.new
-end
+class TicTacToe
+  attr_accessor :board, :computer, :player
 
-def choose_characters
-  puts "X or O?"
-  @player = gets.chomp
-  @computer = case @player
-              when "X" then "O"
-              when "O" then "X"
-              else
-                "C"
-              end
-end
+  def initialize
+    @board = Board.new
+  end
 
-def play
-  until @board.winner?
-    puts "Make a move: "
-    board_index = Board::POSITIONS[gets.chomp]
-    winner = @player
+  def choose_characters
+    puts "X or O?"
+    self.player = gets.chomp
+    self.computer = player == "X" ? "O" : "X"
+  end
 
-    @board.board[board_index].value = @player
+  def play
+    until board.winner?
+      puts "Make a move: "
+      board_index = Board::POSITIONS[gets.chomp]
+      winner = player
 
-    unless @board.winner?
-      @board.available_cells.sample.value = @computer
-      winner = @computer if @board.winner?
+      place_player_piece(player, board_index)
+
+      unless board.winner?
+        place_computer_piece
+        winner = computer if board.winner?
+      end
+
+      print_board
+
+      if board.winner?
+        announce_winner(winner)
+        restart_game if user_wants_to_play_again?
+      else
+        play
+      end
     end
+  end
 
-    @board.display
+  def start_game
+    choose_characters
+    play
+  end
 
-    if @board.winner?
-      puts "#{winner.upcase} WINS!!!"
-      puts "Do you want to play again?"
+  def place_computer_piece
+    board.available_cells.sample.value = computer
+  end
 
-      start_game if gets.chomp == "Yes"
-    else
-      play
-    end
+  def place_player_piece(player, board_index)
+    board.board[board_index].value = player
+  end
+
+  def print_board
+    board.display
+  end
+
+  def announce_winner(winner)
+    puts "#{winner} WINS!!!"
+    puts "Do you want to play again?"
+  end
+
+  def user_wants_to_play_again?
+    gets.chomp == "Yes"
+  end
+
+  def restart_game
+    self.board = Board.new and start_game
   end
 end
 
-def start_game
-  initialize_board
-  choose_characters
-  play
-end
-
-start_game
+tic_tac_toe = TicTacToe.new
+tic_tac_toe.start_game
